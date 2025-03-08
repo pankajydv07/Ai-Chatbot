@@ -63,7 +63,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#1F2937] flex justify-center items-center">
-      <main className="bg-whitesmoke m-4 p-4 min-h-[calc(100vh-2rem)] w-full max-w-4xl rounded-2xl flex flex-col justify-between">
+      <main className="bg-[#2D3748] m-4 p-4 min-h-[calc(100vh-2rem)] w-full max-w-4xl rounded-2xl flex flex-col justify-between">
         <section className="flex flex-col mb-8 overflow-y-auto flex-grow" ref={conversationRef}>
           <ChatMessage text="Hi there! How may I help you?" role="assistant" />
           {messages.filter(m => m.role !== 'system').map((message, index) => (
