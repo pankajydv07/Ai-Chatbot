@@ -1,6 +1,6 @@
 # AI Chatbot
 
-This project is an AI-powered chatbot built using React, TypeScript, and OpenAI's GPT-4 model. The chatbot provides a conversational interface for users to interact with an AI assistant.
+This project is an AI-powered chatbot built using React, TypeScript, and OpenAI's GPT-4o model. The chatbot provides a conversational interface for users to interact with an AI assistant.
 
 ## Features
 
