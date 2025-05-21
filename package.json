@@ -16,7 +16,10 @@
     "openai": "^4.28.0",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0",
-    "github-markdown-css": "^5.5.1"
+    "github-markdown-css": "^5.5.1",
+    "@azure-rest/ai-inference": "latest",
+    "@azure/core-auth": "latest",
+    "@azure/core-sse": "latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
