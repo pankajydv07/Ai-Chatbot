@@ -33,7 +33,7 @@ function App() {
 
     try {
       const runner = openai.beta.chat.completions.runFunctions({
-        model: "gpt-4o",
+        model: "openai/gpt-4.1",
         messages: newMessages,
         functions,
         stream: true,
