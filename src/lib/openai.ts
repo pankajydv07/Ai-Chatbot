@@ -1,4 +1,5 @@
 import { AzureKeyCredential } from "@azure/core-auth";
+import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
 import { getCurrentWeather, getLocation, functions } from "./tools";
 
 const token = import.meta.env.VITE_OPENAI_API_KEY;
