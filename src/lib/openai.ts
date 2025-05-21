@@ -32,6 +32,5 @@ giving basic, generic answers.
   },
 ];
 
-// Exports for easy use elsewhere in the app, like in your original code
-export { openai };
+
 
