@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import  { useRef, useEffect, useState } from 'react';
 import { ChatMessage } from './components/ChatMessage';
 import { ChatInput } from './components/ChatInput';
-import { openai, initialMessages } from './lib/openai';
-import { functions } from './lib/tools';
+import { main, initialMessages } from './lib/openai';
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -26,29 +25,18 @@ function App() {
   };
 
   const handleSubmit = async (query: string) => {
-    const newMessages = [...messages, { role: 'user', content: query }];
+    const newMessages = [
+      ...messages,
+      { role: 'user' as 'user', content: query }
+    ];
     setMessages(newMessages);
     setIsStreaming(true);
     setStreamingContent('');
 
     try {
-      const runner = openai.beta.chat.completions.runFunctions({
-        model: "openai/gpt-4.1",
-        messages: newMessages,
-        functions,
-        stream: true,
-      });
-
-      let accumulatedContent = '';
-      
-      for await (const chunk of runner) {
-        if (chunk.choices[0]?.delta?.content) {
-          accumulatedContent += chunk.choices[0].delta.content;
-          setStreamingContent(accumulatedContent);
-        }
-      }
-
-      setMessages(prev => [...prev, { role: 'assistant', content: accumulatedContent }]);
+      const response = await main(newMessages);
+      const assistantContent = response.choices?.[0]?.message?.content || 'No response.';
+      setMessages(prev => [...prev, { role: 'assistant', content: assistantContent }]);
     } catch (error) {
       console.error('Error:', error);
       setMessages(prev => [...prev, { 
